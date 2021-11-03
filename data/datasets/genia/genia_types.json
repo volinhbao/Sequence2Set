@@ -1,0 +1,1 @@
+{"entities": {"DNA": {"verbose": "DNA", "short": "DNA"}, "RNA": {"verbose": "RNA", "short": "RNA"}, "cell_type": {"verbose": "cell_type", "short": "cell_type"}, "protein": {"verbose": "protein", "short": "protein"}, "cell_line": {"verbose": "cell_line", "short": "cell_line"}}, "relations": {}}
