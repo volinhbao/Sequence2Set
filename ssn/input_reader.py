@@ -150,6 +150,7 @@ class JsonInputReader(BaseInputReader):
         for k, v in json.load(open(types_path.replace("types", "pos"))).items():
             if v>15:
                 self.POS_MAP.append(k)
+        print("POS MAP:",self.POS_MAP)
     
     def load_wordvec(self, filename):
         self.embedding_weight = np.random.rand(len(self.word2inx),len(next(iter(self.word2vec.values()))))
@@ -211,7 +212,7 @@ class JsonInputReader(BaseInputReader):
         doc_tokens = []
         char_vocab = ['<PAD>'] + list(string.printable) + ['ă',"â","ê","ô","ơ","ư"] + ['<EOT>', '<UNK>']
         poss = [self.POS_MAP.index(pos) if pos in self.POS_MAP else self.POS_MAP.index("<UNK>") for pos in jpos]
-
+        print("Poss",poss)
         # full document encoding including special tokens ([CLS] and [SEP]) and byte-pair encodings of original tokens
         doc_encoding = [self._tokenizer.convert_tokens_to_ids('[CLS]')]
         char_encoding = []
