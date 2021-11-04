@@ -210,7 +210,8 @@ class JsonInputReader(BaseInputReader):
 
     def _parse_tokens(self, jtokens, ltokens, rtokens, jpos, dataset):
         doc_tokens = []
-        char_vocab = ['<PAD>'] + list(string.printable) + ['ă',"â","ê","ô","ơ","ư"] + ['<EOT>', '<UNK>']
+        vntokens = u"0123456789aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c"
+        char_vocab = ['<PAD>'] + list(vntokens) + ['<EOT>', '<UNK>']
         poss = [self.POS_MAP.index(pos) if pos in self.POS_MAP else self.POS_MAP.index("<UNK>") for pos in jpos]
         print("Poss",poss)
         # full document encoding including special tokens ([CLS] and [SEP]) and byte-pair encodings of original tokens
